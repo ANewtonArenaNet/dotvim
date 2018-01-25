@@ -7,6 +7,7 @@ filetype plugin indent on
 :let mapleader = ","
 
 nmap <leader>l :set list!<CR>
+nmap <leader>p :set paste!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
