@@ -3,6 +3,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+
 " Changing mapleader has no effect for already defined mappings
 :let mapleader = ","
 
