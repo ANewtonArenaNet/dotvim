@@ -9,4 +9,4 @@ This is a repository to synchronize vi improved customizations across computers.
     ln -s ~/.vim/vimrc ~/.vimrc 
     ln -s ~/.vim/gvimrc ~/.gvimrc 
     cd ~/.vim
-    git submodule update --init -r
+    git submodule update --init --recursive
