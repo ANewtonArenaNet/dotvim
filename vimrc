@@ -14,6 +14,10 @@ nmap <leader>p :set paste!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
+" Ctrl-u will start a new change
+" this helps prevent the accidental loss of input from insert mode
+inoremap <c-u> <c-g>u<c-u>
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 " Drew Neil http://vimcasts.org
 " http://vimcasts.org/episodes/tabs-and-spaces/
