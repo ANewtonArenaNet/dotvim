@@ -24,6 +24,7 @@ set listchars=tab:▸\ ,eol:¬
 inoremap <c-u> <c-g>u<c-u>
 
 " Change the background color beyond column 110
+colorscheme evening
 set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
 
