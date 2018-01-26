@@ -4,12 +4,15 @@ syntax on
 filetype plugin indent on
 
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set number
+set hlsearch
 
 " Changing mapleader has no effect for already defined mappings
 :let mapleader = ","
 
 nmap <leader>l :set list!<CR>
 nmap <leader>p :set paste!<CR>
+nmap <leader>h :set hlsearch!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
