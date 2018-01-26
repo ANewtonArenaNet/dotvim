@@ -18,6 +18,10 @@ set listchars=tab:▸\ ,eol:¬
 " this helps prevent the accidental loss of input from insert mode
 inoremap <c-u> <c-g>u<c-u>
 
+" Change the background color beyond column 110
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+
 " Set tabstop, softtabstop and shiftwidth to the same value
 " Drew Neil http://vimcasts.org
 " http://vimcasts.org/episodes/tabs-and-spaces/
