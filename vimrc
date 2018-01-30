@@ -3,6 +3,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+set completeopt-=preview
+
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set number
 set hidden
@@ -26,6 +28,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" omnisharp-vim
+let g:OmniSharp_server_type = 'v1'
+let g:OmniSharp_server_type = 'roslyn'
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
@@ -144,6 +149,7 @@ augroup omnisharp_commands
 
 augroup END
 
+set wildignore+=*/bin/*,*/obj/*,*.csproj,*.dll,*.pdb,*.lock.json,*.sln,*.prefab,*.meta,*.asset,*.mdb
 
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
 set updatetime=500

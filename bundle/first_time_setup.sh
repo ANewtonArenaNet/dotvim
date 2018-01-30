@@ -1,3 +1,3 @@
 #!/bin/sh
-cd YouCompleteMe
-./install.py --clang-completer --cs-completer
+cd omnisharp-vim/omnisharp-roslyn
+./build.sh
