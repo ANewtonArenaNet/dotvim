@@ -11,6 +11,9 @@ set hidden
 highlight LineNr ctermfg=grey
 set hlsearch
 
+" Select last paste
+nnoremap gp `[v`]
+
 " Changing mapleader has no effect for already defined mappings
 :let mapleader = ","
 
@@ -88,6 +91,13 @@ function! SummarizeTabs()
     echohl None
   endtry
 endfunction
+
+"Hotkeys for markdown
+augroup markdown
+    autocmd FileType markdown nnoremap <leader>mf :set foldenable!<cr>
+    autocmd FileType markdown nnoremap <leader>tf :TableFormat<cr>
+    autocmd FileType markdown nnoremap <leader>tc :Toc<cr>
+augroup END
 
 "This is the default value, setting it isn't actually necessary
 let g:OmniSharp_host = "http://localhost:2000"
