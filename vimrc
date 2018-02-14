@@ -94,9 +94,15 @@ endfunction
 
 "Hotkeys for markdown
 augroup markdown
-    autocmd FileType markdown nnoremap <leader>mf :set foldenable!<cr>
-    autocmd FileType markdown nnoremap <leader>tf :TableFormat<cr>
-    autocmd FileType markdown nnoremap <leader>tc :Toc<cr>
+    autocmd FileType markdown nnoremap <leader>m0 :set foldenable!<cr>:let g:vim_markdown_folding_level = 1<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m1 :let g:vim_markdown_folding_level = 1<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m2 :let g:vim_markdown_folding_level = 2<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m3 :let g:vim_markdown_folding_level = 3<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m4 :let g:vim_markdown_folding_level = 4<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m5 :let g:vim_markdown_folding_level = 5<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m6 :let g:vim_markdown_folding_level = 6<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>mf :TableFormat<cr>
+    autocmd FileType markdown nnoremap <leader>mt :Toc<cr>
 augroup END
 
 "This is the default value, setting it isn't actually necessary
