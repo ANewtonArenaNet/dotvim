@@ -95,12 +95,12 @@ endfunction
 "Hotkeys for markdown
 augroup markdown
     autocmd FileType markdown nnoremap <leader>m0 :set foldenable!<cr>:let g:vim_markdown_folding_level = 1<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m1 :let g:vim_markdown_folding_level = 1<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m2 :let g:vim_markdown_folding_level = 2<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m3 :let g:vim_markdown_folding_level = 3<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m4 :let g:vim_markdown_folding_level = 4<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m5 :let g:vim_markdown_folding_level = 5<cr>:edit<cr>
-    autocmd FileType markdown nnoremap <leader>m6 :let g:vim_markdown_folding_level = 6<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m1 :set foldenable<cr>:let g:vim_markdown_folding_level = 1<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m2 :set foldenable<cr>:let g:vim_markdown_folding_level = 2<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m3 :set foldenable<cr>:let g:vim_markdown_folding_level = 3<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m4 :set foldenable<cr>:let g:vim_markdown_folding_level = 4<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m5 :set foldenable<cr>:let g:vim_markdown_folding_level = 5<cr>:edit<cr>
+    autocmd FileType markdown nnoremap <leader>m6 :set foldenable<cr>:let g:vim_markdown_folding_level = 6<cr>:edit<cr>
     autocmd FileType markdown nnoremap <leader>mf :TableFormat<cr>
     autocmd FileType markdown nnoremap <leader>mt :Toc<cr>
 augroup END
@@ -162,7 +162,7 @@ augroup omnisharp_commands
 
     "The following commands are contextual, based on the current cursor position.
 
-    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap gd :write<cr>:OmniSharpGotoDefinition<cr>
     autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
     autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
     autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
