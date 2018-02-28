@@ -137,6 +137,9 @@ set completeopt=longest,menuone,preview
 "You might also want to look at the echodoc plugin
 set splitbelow
 
+" Strip trailing whitespace when saving .cs files
+autocmd FileType cs autocmd BufWritePre <buffer> %s/\s\+$//e
+
 " Get Code Issues and syntax errors
 " let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 " If you are using the omnisharp-roslyn backend, use the following
