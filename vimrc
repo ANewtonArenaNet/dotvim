@@ -184,7 +184,10 @@ augroup omnisharp_commands
 
 augroup END
 
-set wildignore+=*/bin/*,*/obj/*,*.csproj,*.dll,*.pdb,*.lock.json,*.sln,*.prefab,*.meta,*.asset,*.mdb
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+let g:ctrlp_custom_ignore = '*/bin/*,*/obj/*,*.csproj,*.dll,*.pdb,*.lock.json,*.sln,*.prefab,*.meta,*.asset,*.mdb'
+let g:ctrlp_by_filename = 1
+let g:ctrlp_working_path_mode = 'wa'
 
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
 set updatetime=500
