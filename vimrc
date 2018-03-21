@@ -184,10 +184,9 @@ augroup omnisharp_commands
 
 augroup END
 
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
-let g:ctrlp_custom_ignore = '*/bin/*,*/obj/*,*.csproj,*.dll,*.pdb,*.lock.json,*.sln,*.prefab,*.meta,*.asset,*.mdb'
-let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'wa'
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+let g:ctrlp_user_command = 'find %s -iname "*.cs"'
 
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
 set updatetime=500
