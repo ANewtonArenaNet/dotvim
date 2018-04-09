@@ -105,9 +105,6 @@ augroup markdown
     autocmd FileType markdown nnoremap <leader>mt :Toc<cr>
 augroup END
 
-"This is the default value, setting it isn't actually necessary
-let g:OmniSharp_host = "http://localhost:2000"
-
 "Set the type lookup function to use the preview window instead of the status line
 "let g:OmniSharp_typeLookupInPreview = 1
 
