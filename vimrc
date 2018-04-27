@@ -49,6 +49,7 @@ let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
 
 " omnisharp-vim
 let g:OmniSharp_server_type = 'roslyn'
+let g:OmniSharp_port = (localtime()%10000)+10000
 "
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
