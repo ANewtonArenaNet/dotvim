@@ -11,6 +11,10 @@ set hidden
 highlight LineNr ctermfg=grey
 set hlsearch
 
+" testing buftabline
+nnoremap <C-F> :bnext<CR>
+nnoremap <C-B> :bprev<CR>
+
 " Select last paste
 nnoremap gp `[v`]
 
