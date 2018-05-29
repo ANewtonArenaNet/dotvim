@@ -11,6 +11,10 @@ set hidden
 highlight LineNr ctermfg=grey
 set hlsearch
 
+" "Refocus" folds
+nnoremap ,z zMzvzz
+set foldlevelstart=20
+
 " testing buftabline
 nnoremap <C-F> :bnext<CR>
 nnoremap <C-B> :bprev<CR>
@@ -148,6 +152,9 @@ autocmd FileType cs autocmd BufWritePre <buffer> %s/\s\+$//e
 let g:syntastic_cs_checkers = ['code_checker']
 augroup omnisharp_commands
     autocmd!
+
+    " enable csharp folding
+    autocmd FileType cs setlocal foldmethod=syntax
 
     "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
     autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
