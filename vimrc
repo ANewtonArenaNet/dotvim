@@ -58,6 +58,9 @@ let g:OmniSharp_port = (localtime()%10000)+10000
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
+" Don't add newline at eof
+set nofixendofline
+
 " Ctrl-u will start a new change
 " this helps prevent the accidental loss of input from insert mode
 inoremap <c-u> <c-g>u<c-u>
