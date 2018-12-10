@@ -226,3 +226,9 @@ set hidden
 
 " Enable snippet completion, requires completeopt-=preview
 let g:OmniSharp_want_snippet=1
+
+" Common Tabular Patterns
+" First colon
+nmap <Leader>a1 :Tabularize /^[^:]*:\zs/<CR>
+" all colons
+vmap <Leader>a: :Tabularize /:\zs<CR>
