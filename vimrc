@@ -23,6 +23,7 @@ nmap <leader>l :set list!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
 vmap <leader>s :sort ur /[^;]*/<CR>
+nmap <leader>a :args `find . -path ./.build -prune -o -iname *.cs -print`<CR>
 
 " Syntasic
 set statusline+=%#warningmsg#
