@@ -190,7 +190,7 @@ augroup END
 
 let g:ctrlp_working_path_mode = 'wa'
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-let g:ctrlp_user_command = 'find %s -iname "*.cs"'
+let g:ctrlp_user_command = 'find . -type f -iname "*.cs" | grep -v .AssemblyInfo | grep -v .cshtml'
 
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
 set updatetime=500
