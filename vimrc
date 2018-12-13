@@ -3,8 +3,6 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set completeopt-=preview
-
 set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set number
 set hidden
@@ -226,7 +224,7 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 set hidden
 
 " Enable snippet completion, requires completeopt-=preview
-let g:OmniSharp_want_snippet=1
+" let g:OmniSharp_want_snippet=1
 
 " Common Tabular Patterns
 " First colon
