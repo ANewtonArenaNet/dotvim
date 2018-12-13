@@ -22,8 +22,11 @@ nnoremap gp `[v`]
 nmap <leader>l :set list!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
-vmap <leader>s :sort ur /[^;]*/<CR>
+nmap <leader>c :SyntasticCheck<CR>
 nmap <leader>a :args `find . -path ./.build -prune -o -iname *.cs -print`<CR>
+
+" Unique sort from visual mode
+vmap <leader>s :sort ur /[^;]*/<CR>
 
 " Syntasic
 set statusline+=%#warningmsg#
@@ -47,9 +50,10 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+  let g:neocomplete#sources#omni#input_patterns = {'cs': '.*[^=\);]'}
 endif
-let g:neocomplete#sources#omni#input_patterns.cs = '.*[^=\);]'
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " omnisharp-vim
 let g:OmniSharp_server_type = 'roslyn'
@@ -160,17 +164,18 @@ augroup omnisharp_commands
     " Builds can also run asynchronously with vim-dispatch installed
     autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
     " automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    autocmd InsertLeave *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
-    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+    " autocmd BufWritePost *.cs call OmniSharp#AddToProject()
 
     "show type information automatically when the cursor stops moving
-    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+    " autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
 
     "The following commands are contextual, based on the current cursor position.
 
-    autocmd FileType cs nnoremap gd :write<cr>:OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
     autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
     autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
     autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
@@ -186,7 +191,8 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
     "navigate down by method/property/field
     autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
-
+    
+    autocmd FileType cs imap <C-B> <C-O>:OmniSharpTypeLookup<cr>
 augroup END
 
 let g:ctrlp_working_path_mode = 'wa'
