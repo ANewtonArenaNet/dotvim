@@ -24,6 +24,7 @@ nnoremap gp `[v`]
 nmap <leader>l :set list!<CR>
 nmap <leader>p :set paste!<CR>
 nmap <leader>h :set hlsearch!<CR>
+vmap <leader>s :sort ur /[^;]*/<CR>
 
 " Syntasic
 set statusline+=%#warningmsg#
