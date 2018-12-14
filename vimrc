@@ -46,10 +46,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {'cs': '.*[^=\);]'}
+  let g:neocomplete#sources#omni#input_patterns = {'cs': '.*[^=\);{}]'}
 endif
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " omnisharp-vim
 let g:OmniSharp_server_type = 'roslyn'
@@ -129,8 +127,6 @@ set noshowmatch
 "let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 "let g:SuperTabClosePreviewOnPopupClose = 1
 
-"don't autoselect first item in omnicomplete, show if only one item (for preview)
-"remove preview if you don't want to see any documentation whatsoever.
 set completeopt=noinsert,menu
 " Fetch full documentation during omnicomplete requests.
 " There is a performance penalty with this (especially on Mono)
@@ -165,7 +161,7 @@ augroup omnisharp_commands
     " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
     autocmd FileType cs nnoremap <leader>bb :!dotnet build<CR>
     autocmd FileType cs nnoremap <leader>bf :!dotnet build --no-restore<CR>
-    autocmd InsertLeave *.cs SyntasticCheck
+    autocmd BufWritePost *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
     " autocmd BufWritePost *.cs call OmniSharp#AddToProject()
