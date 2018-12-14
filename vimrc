@@ -135,7 +135,7 @@ set noshowmatch
 
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
 "remove preview if you don't want to see any documentation whatsoever.
-set completeopt=noinsert,menuone
+set completeopt=noinsert,menu
 " Fetch full documentation during omnicomplete requests.
 " There is a performance penalty with this (especially on Mono)
 " By default, only Type/Method signatures are fetched. Full documentation can still be fetched when
@@ -167,7 +167,8 @@ augroup omnisharp_commands
     "
     " automatic syntax check on events (TextChanged requires Vim 7.4)
     " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
-    autocmd FileType cs nnoremap <leader>b :!dotnet build<CR>
+    autocmd FileType cs nnoremap <leader>bb :!dotnet build<CR>
+    autocmd FileType cs nnoremap <leader>bf :!dotnet build --no-restore<CR>
     autocmd InsertLeave *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
