@@ -167,6 +167,7 @@ augroup omnisharp_commands
     "
     " automatic syntax check on events (TextChanged requires Vim 7.4)
     " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    autocmd FileType cs nnoremap <leader>b :!dotnet build<CR>
     autocmd InsertLeave *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
