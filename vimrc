@@ -3,11 +3,14 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set number
 set hidden
 highlight LineNr ctermfg=grey
 set hlsearch
+
+" Tabs & Spaces
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Select last paste
 nnoremap gp `[v`]
@@ -22,7 +25,7 @@ nmap <leader>c :SyntasticCheck<CR>
 nmap <leader>a :args `find . -path ./.build -prune -o -iname *.cs -print`<CR>
 
 " Unique sort from visual mode
-vmap <leader>s :sort ur /[^;]*/<CR>
+vmap <leader>so :sort ur /[^;]*/<CR>
 
 " Syntasic
 set statusline+=%#warningmsg#
@@ -33,6 +36,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Get Code Issues and syntax errors
+" let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
+" If you are using the omnisharp-roslyn backend, use the following
+let g:syntastic_cs_checkers = ['code_checker']
 
 " Neocomplete
 let g:acp_enableAtStartup = 0
@@ -46,7 +53,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {'cs': '.*[^=\);{}]'}
+  let g:neocomplete#sources#omni#input_patterns = {'cs': '.*[^=\);:{}]'}
 endif
 
 " omnisharp-vim
@@ -127,7 +134,7 @@ set noshowmatch
 "let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 "let g:SuperTabClosePreviewOnPopupClose = 1
 
-set completeopt=noinsert,menu
+set completeopt=noinsert,menu,noselect
 " Fetch full documentation during omnicomplete requests.
 " There is a performance penalty with this (especially on Mono)
 " By default, only Type/Method signatures are fetched. Full documentation can still be fetched when
@@ -141,10 +148,6 @@ set splitbelow
 " Strip trailing whitespace when saving .cs files
 autocmd FileType cs autocmd BufWritePre <buffer> %s/\s\+$//e
 
-" Get Code Issues and syntax errors
-" let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-" If you are using the omnisharp-roslyn backend, use the following
-let g:syntastic_cs_checkers = ['code_checker']
 augroup omnisharp_commands
     autocmd!
 
@@ -216,8 +219,7 @@ nnoremap <leader>cf :OmniSharpCodeFormat<cr>
 nnoremap <leader>tp :OmniSharpAddToProject<cr>
 
 " Start the omnisharp server for the current solution
-nnoremap <leader>ss :OmniSharpStartServer<cr>
-nnoremap <leader>sp :OmniSharpStopServer<cr>
+nnoremap <leader>ss :OmniSharpStopServer<cr>:OmniSharpStartServer<cr>
 
 " Add syntax highlighting for types and interfaces
 nnoremap <leader>th :OmniSharpHighlightTypes<cr>
